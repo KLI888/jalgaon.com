@@ -1,0 +1,56 @@
+.nav_serach {
+    /* margin-top: 20px; */
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid rgb(236, 234, 234);
+    position: fixed;
+    top: 56px;
+    width: 100%;
+    z-index: 1000;
+    background-color: #fff;
+}
+
+.select_city {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    flex: 1;
+    font-size: 18px;
+    border: 1px solid rgb(236, 234, 234);
+}
+
+.main_search {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    flex: 5;
+    font-size: 18px;
+    border: 1px solid rgb(236, 234, 234);
+}
+.main_search .input_business {
+    outline: none;
+    border: none;
+    width: 100%;
+    font-size: 16px;
+}
+
+
+@media (max-width: 500px) {
+    .select_city {
+        gap: 10px;
+        padding: 10px;
+        justify-content: center;
+        flex: 1;
+        font-size: 14px;
+        border: 1px solid rgb(236, 234, 234);
+    }
+    .main_search {
+        flex: 2;
+    }
+}
