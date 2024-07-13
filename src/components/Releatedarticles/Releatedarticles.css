@@ -150,3 +150,39 @@
         height: 400px;
     }
 }
+
+
+@media (max-width: 500px) {
+    .related_articles {
+        padding: 10px;
+    }
+    .header_text {
+        font-size: 16px;
+    }
+
+    .see_more {
+        font-size: 12px;
+        gap: 2px;
+    }
+    .see_more i {
+        font-size: 18px;
+    }
+
+
+    .articles_slider {
+        width: 415px;
+    }
+
+    .slider_button button {
+        font-size: 22px;
+    }
+
+    .articles_cards {
+        justify-content: center;
+        width: 410px;
+    }
+    .article_card {
+        min-width: 350px;
+        height: 400px;
+    }
+}

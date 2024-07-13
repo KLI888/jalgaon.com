@@ -19,7 +19,7 @@
 }
 .service img {
     padding: 5px;
-    border: 1px solid gray;
+    /* border: 1px solid gray; */
     border-radius: 15px;
 }
 .service p {
@@ -57,5 +57,23 @@
 
     .category {
         width: 100%;
+    }
+}
+
+
+@media (max-width: 500px) {
+    .services_container {
+        padding: 50px 10px;
+    }
+
+    .service img {
+        width: 50px;
+        padding: 3px;
+    }
+
+    .service p {
+        font-size: 10px;
+        font-weight: 500;
+        margin-top: 10px;
     }
 }

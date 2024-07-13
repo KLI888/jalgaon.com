@@ -102,3 +102,21 @@
         margin: 10px 0;
     }
 }
+
+
+@media (max-width: 500px) {
+    .category {
+        padding: 10px;
+    }
+    .category_name {
+        font-size: 16px;
+    }
+    .category_img {
+        width: 160px;
+        height: 160px;
+    }
+    .categoryes_tiles {
+        padding: 10px;
+        gap: 10px;
+    }
+}

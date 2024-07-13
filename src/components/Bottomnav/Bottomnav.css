@@ -40,3 +40,10 @@
         display: block;
     }
 }
+
+
+@media (max-width: 500px) {
+    .bottom_nav_links p {
+        font-size: 11px;
+    }
+}
