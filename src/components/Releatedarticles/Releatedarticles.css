@@ -170,7 +170,7 @@
 
 
     .articles_slider {
-        width: 415px;
+        width: 400px;
     }
 
     .slider_button button {
@@ -182,7 +182,15 @@
         width: 410px;
     }
     .article_card {
-        min-width: 350px;
+        min-width: 325px;
         height: 400px;
+    }
+    .article_img {
+        max-width: 400px;
+        height: 190px;
+    }
+
+    .article_title {
+        font-size: 14px;
     }
 }
