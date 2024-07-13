@@ -84,8 +84,12 @@
     }
     .navbar {
         padding: 10px 20px;
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        background: #fff;
     }
-
     .nav_login .menu {
         display: block;
     }

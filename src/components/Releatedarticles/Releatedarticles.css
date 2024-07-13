@@ -2,7 +2,8 @@
     padding: 30px;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center horizontally */
+    align-items: center;
+    /* Center horizontally */
 }
 
 
@@ -15,7 +16,8 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    max-width: 1200px; /* Adjust the max width as needed */
+    max-width: 1200px;
+    /* Adjust the max width as needed */
 }
 
 .header_text {
@@ -58,6 +60,7 @@
     justify-content: space-between;
     align-items: center;
 }
+
 .slider_button button {
     font-size: 30px;
     border: none;
@@ -127,23 +130,26 @@
     .articles_slider {
         width: 800px;
     }
+
     .article_card {
         min-width: 380px;
         max-width: 440px;
         height: 465px;
     }
-    
+
 }
 
 @media (max-width: 855px) {
     .articles_slider {
         width: 680px;
     }
+
     .article_img {
         width: 100%;
         max-width: 400px;
         height: 250px;
     }
+
     .article_card {
         min-width: 380px;
         max-width: 440px;
@@ -156,6 +162,7 @@
     .related_articles {
         padding: 10px;
     }
+
     .header_text {
         font-size: 16px;
     }
@@ -164,6 +171,7 @@
         font-size: 12px;
         gap: 2px;
     }
+
     .see_more i {
         font-size: 18px;
     }
@@ -178,13 +186,15 @@
     }
 
     .articles_cards {
-        justify-content: center;
-        width: 410px;
+        justify-content: start;
+        width: 346px;
     }
+
     .article_card {
         min-width: 325px;
         height: 400px;
     }
+
     .article_img {
         max-width: 400px;
         height: 190px;
@@ -192,5 +202,57 @@
 
     .article_title {
         font-size: 14px;
+    }
+}
+
+
+
+@media (max-width: 380px) {
+    .articles_slider {
+        width: 340px;
+    }
+
+    .slider_button button i {
+        padding: 1px;
+        border-radius: 10px;
+        border: 1px solid #0081C7;
+        color: #0081C7;
+    }
+}
+
+@media (max-width: 350px) {
+    .articles_slider {
+        width: 300px;
+    }
+
+    .article_card {
+        min-width: 280px;
+        height: 325px;
+    }
+
+    .article_img {
+        max-width: 400px;
+        height: 155px;
+    }
+
+    .article_title {
+        font-size: 12px;
+    }
+
+    .article_explore {
+        font-size: 14px;
+        margin-top: 20px;
+        color: royalblue;
+    }
+
+    .slider_button button {
+        font-size: 15px;
+    }
+
+    .slider_button button i {
+        padding: 4px;
+        border-radius: 10px;
+        border: 1px solid #0081C7;
+        color: #0081C7;
     }
 }

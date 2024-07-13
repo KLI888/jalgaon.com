@@ -70,13 +70,13 @@
 }
 
 .footer_copyright {
+    margin: 0 0 50px 0;
     padding: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
-
 .copyright_content {
     display: flex;
     justify-content: center;
@@ -142,5 +142,19 @@
     }
     .copyright_content .social_links {
         padding: 0px;
+    }
+}
+
+
+@media (max-width: 350px) {
+    .copyright_content .hr_line {
+        width: 245px;
+    }
+    .copyright_content {
+        font-size: 10px;
+    }
+    .copyright_content .social_links i {
+        margin: 0 10px;
+        font-size: 16px;
     }
 }
