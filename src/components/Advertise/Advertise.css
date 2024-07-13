@@ -121,3 +121,27 @@
         height: 280px;
     }
 }
+
+
+@media (max-width: 500px) {
+    .advertise_container {
+        flex-direction: column;
+        padding: 10px 5px;
+    }
+    .banner_ads img {
+        display: none;
+    }
+
+    .slide_container {
+        width: 97vw;
+    }
+    .slider_img_div {
+        height: 220px;
+    }
+
+
+    .indicator {
+        height: 0.4rem;
+        width: 0.4rem;
+    }
+}

@@ -42,15 +42,21 @@
 
 
 @media (max-width: 500px) {
+    .nav_serach {
+        /* margin-top: 20px; */
+        top: 35px;
+        width: 100vw;
+    }
     .select_city {
-        gap: 10px;
-        padding: 10px;
-        justify-content: center;
-        flex: 1;
-        font-size: 14px;
-        border: 1px solid rgb(236, 234, 234);
+        flex: 3;
+        font-size: 12px;
     }
-    .main_search {
-        flex: 2;
+    .main_search .input_business {
+        font-size: 12px;
     }
+    .stocktickle_container {
+        margin-top: 88px;
+    }
+
+    
 }

@@ -73,3 +73,21 @@
     font-size: 12px;
 }
 
+
+
+
+@media (max-width: 500px) {
+    .stocktickle_container {
+        margin-top: 90px;
+    }
+
+    /* .stock_tickle .stock_title {
+        font-size: 12px;
+    }
+    .stock_tickle .stock_price {
+        font-size: 12px;
+    }
+    .stock_price_updown {
+        font-size: 12px;
+    } */
+}
