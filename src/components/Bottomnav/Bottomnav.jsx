@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Bottomnav.css';
+import { Link } from 'react-router-dom';
 
 function Bottomnav() {
   const [activeLink, setActiveLink] = useState('home');
@@ -19,14 +20,14 @@ function Bottomnav() {
           <i className='bx bx-home'></i>
           <p>Home</p>
         </a>
-        <a
-          href="#"
+        <Link
+          to="/categories"
           className={`bottom_nav_links ${activeLink === 'directory' ? 'active' : ''}`}
           onClick={() => handleLinkClick('directory')}
         >
           <i className='bx bx-folder'></i>
           <p>Directory</p>
-        </a>
+        </Link>
         <a
           href="#"
           className={`bottom_nav_links ${activeLink === 'add_listing' ? 'active' : ''}`}
