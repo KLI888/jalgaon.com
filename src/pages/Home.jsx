@@ -10,14 +10,11 @@ import Bottomnav from '../components/Bottomnav/Bottomnav'
 function Home() {
   return (
     <div className="main_section">
-      <Navbar/>
       <Stocktickle />
       <Advertise/>
       <Services />
       <Categorytile/>
       <Releatedarticles />
-      <Footer />
-      <Bottomnav />
     </div>
   )
 }
