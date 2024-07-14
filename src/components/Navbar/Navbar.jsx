@@ -1,7 +1,11 @@
 import React from 'react'
+import {Link, NavLink} from 'react-router-dom'
 import './Navbar.css'
 import { assets } from '../../assets/assets'
 import Search from './Search'
+
+
+
 const Navbar = () => {
     return (
         <>
@@ -13,10 +17,18 @@ const Navbar = () => {
                     </div>
                     <div className="nav_links">
                         <ul className="navbar_menu">
-                            <li>Home</li>
-                            <li>Add Listing</li>
-                            <li>Advertise</li>
-                            <li>News</li>
+                            <NavLink to='/'>
+                                <li>Home</li>
+                            </NavLink>
+                            <NavLink to='/categories'>
+                                <li>Add Listing</li>
+                            </NavLink>
+                            <NavLink to='/'>
+                                <li>Advertise</li>
+                            </NavLink>
+                            <NavLink to='/'>
+                                <li>News</li>
+                            </NavLink>
                         </ul>
                         <div className="nav_login">
                             <i class='bx bx-heart'></i>
