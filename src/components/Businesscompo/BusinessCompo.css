@@ -542,7 +542,9 @@
         height: 120px;
     }
 
-
+    .company_desc p {
+        font-size: 14px;
+    }
     .company_reviw .review_form textarea {
         width: 100%;
     }
