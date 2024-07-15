@@ -5,6 +5,7 @@
     background-color: #fff;
     padding: 10px;
     display: none;
+    z-index: 1000;
 }
 
 .bottom_nav_links {
