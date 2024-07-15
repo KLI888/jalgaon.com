@@ -29,8 +29,8 @@ function BusinessCard() {
                 </div>
                 <div className="business_contact">
                     <a href="tel:8407994909" className='business_call_btn'><i class='bx bxs-phone'></i> Call Us</a>
-                    <Link to=''><p>View Details</p></Link>
-                    <Link to=''><p><i class='bx bx-share-alt'></i> <span>Share</span></p></Link>
+                    <Link to='/categories/1'><p>View Details</p></Link>
+                    <Link to='/'><p><i class='bx bx-share-alt'></i> <span>Share</span></p></Link>
                 </div>
             </div>
         </div>

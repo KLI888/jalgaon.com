@@ -73,6 +73,9 @@
     .navbar_menu, .nav_login .login_btn {
         display: none;
     }
+    .nav_login .menu {
+        display: block;
+    }
 }
 
 

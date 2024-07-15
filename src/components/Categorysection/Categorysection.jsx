@@ -7,7 +7,7 @@ function Categorysection() {
     return (
         <div className="business_section">
             <div className="business_content">
-               <div className="page_location"><Link to='/'>Home</Link> > Search > <span>Automotive</span></div> 
+               <div className="page_location"><Link to=''>Home</Link> &gt; Search &gt; <span>Automotive</span></div> 
                <div className="result_heading">Showing Results for <span>Automotive</span></div>
                <div className="business_cards_ads">
                 <div className="business_cards">
