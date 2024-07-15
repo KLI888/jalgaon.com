@@ -512,8 +512,11 @@
         padding: 10px;
     }
     .companyWork h1 {
-        font-size: 16px;
+        font-size: 18px;
         font-weight: 600;
+    }
+    .company_brands .brands span {
+        font-size: 12px;
     }
     .company_brands .brands {
         gap: 5px 10px;
@@ -521,7 +524,7 @@
     }
 
     .company_profile .profile_info {
-        gap: 5px;
+        gap: 10px;
         flex-wrap: wrap;
     }
     .profile_info p {
