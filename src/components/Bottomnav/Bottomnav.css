@@ -39,6 +39,7 @@
 @media (max-width: 855px) {
     .bottom_nav {
         display: block;
+        width: 100vw;
     }
 }
 

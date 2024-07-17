@@ -44,14 +44,14 @@ function Bottomnav() {
           <i className='bx bx-calendar'></i>
           <p>Events</p>
         </a>
-        <a
-          href="#"
+        <Link
+          to="/account"
           className={`bottom_nav_links ${activeLink === 'account' ? 'active' : ''}`}
           onClick={() => handleLinkClick('account')}
         >
           <i className='bx bx-user-circle'></i>
           <p>Account</p>
-        </a>
+        </Link>
       </div>
     </div>
   );

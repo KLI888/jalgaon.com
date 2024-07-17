@@ -86,6 +86,7 @@
         width: 100vw;
     }
     .navbar {
+        width: 100vw;
         padding: 10px 20px;
         position: fixed;
         left: 0;

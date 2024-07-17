@@ -6,6 +6,7 @@ import Home from './pages/Home.jsx'
 import Layout from './Layout.jsx'
 import CategoryPage from './pages/CategoryPage.jsx'
 import BusinessDetailsPage from './pages/BusinessDetailsPage.jsx'
+import Account from './pages/Account.jsx'
 // const router = createBrowserRouter([
 //   {
 //     path: '/',
@@ -29,6 +30,8 @@ const router = createBrowserRouter(
       <Route index element={<Home />} />
       <Route path='categories' element={<CategoryPage />} />
       <Route path='categories/:productId' element={<BusinessDetailsPage />} />
+
+      <Route path='account' element={<Account />} />
     </Route>
   )
 );
