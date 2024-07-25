@@ -21,7 +21,7 @@ function Category({ name }) {
                 </div>
                 <div className="category_business">
                     <div className="category_img">
-                    <img src="https://s3-alpha-sig.figma.com/img/c428/a281/a2137cffbf26387b127bf7eb727590a9?Expires=1721001600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=cDl0gUlTtIDs80C0wkptoRrBoRLlw5nWVRgNZnsHz0tB0xnsH6GZ4pbG2JdaTnYKk~k74lpW63OhKQPYhomU0QKkoLsY3kMYYVNcrJuQMis5vDpDk6JEnvoG4As5-kWQLvslRz9adzm-f~CahSjBaqY4U68To77fW9EcPdBiucCiVsBhsNVyUlaHgCwqIOBvc9AkhFwhNI0oDZzIy8rIwb~i-H5Y1vYLmp1cpE4dH2k7acK5TeMZ~DMa6ye9qRb7nNtpRHfUh463kWsUgQyTmmy6DWC5ey32R4PjRkS6O34a1qdsJwZSJNlp8yq7NKJt5hiZZ3gIfFB3xCjFY3nhsw__" alt="" />
+                    <img src="https://s3-alpha-sig.figma.com/img/faaf/b430/01cbe0776cac848cd04bc2be68bc78a3?Expires=1722211200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=RUcop~H3G5RNp7UaMyY9g~GaKEDKsIeEnNLd9zsxSl4pk9fDMm~iZha3xjlhChOICizXBkno36rLt21eVI~mtu6~31A5nLI0dTWxZbl-Q8TrNM~SXGcFaTf5nVyyTXdEqIZ6PsqcZWToUvaGbJEEXh1AhHwcHTGger7Ua5eDcMZXpBuvOrfdrFWTLavn1SPoeOBDRRJyRixXTjN~BJUbEfrUdWBci7w0c0p~afeohr69BfEpADuyQxZSZ9JtZ1dGZq6AbK9hFbOon6BXu53MbjjJXmfnpt7c2KeSKWxyeIAyMoNO1NhZjEWTlsxRkDmtcemJexxTEwor-VhgPrD5Fw__" alt="" />
                     </div>
                     <p className="business_name">Cars 24</p>
                 </div>

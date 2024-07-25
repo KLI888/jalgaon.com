@@ -24,7 +24,7 @@
 .login_form {
     background-color: #fff;
     border-radius: 15px;
-    padding: 50px 25px;
+    padding: 30px 25px;
     width: 38%;
 
     position: relative;
@@ -81,6 +81,23 @@
     font-weight: 500;
 }
 
+
+.otp_input {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 0;
+
+}
+
+.otp_input input {
+    width: 60px;
+    height: 60px;
+    font-size: 18px;
+    outline: none;padding: 10px;
+    text-align: center;
+}
+
 .number_input {
     display: flex;
     align-items: center;
@@ -88,7 +105,13 @@
     padding: 10px;
     border: 1px solid gray;
     margin-bottom: 30px;
+    
 }
+
+
+
+
+
 .login_form img {
     width: 30px;
 }
@@ -149,8 +172,8 @@
     cursor: pointer;
 }
 
-.back_btn_login i {
-    font-size: 22px;
+.back_btn_login span {
+    text-decoration: underline;
     color: rgb(156 163 175/1);
 }
 
@@ -200,4 +223,26 @@
         font-size: 24px;
     }
 
+
+
+    .otp_input {
+        gap: 15px;
+    }
+
+    .otp_input input {
+        width: 40px;
+        height: 40px;
+        padding: 4px;
+    }
+}
+
+
+@media (max-width: 375px) {
+    .otp_input {
+        gap: 10px;
+    }
+    .otp_input input {
+        width: 35px;
+        height: 35px;
+    }
 }
