@@ -9,14 +9,27 @@ import Account from './pages/Account';
 import { UserProvider } from './context/UserContext';
 import Providers from './Providers';
 import AddListingPage from './pages/AddListingPage';
+import AddAdvertise from './pages/AddAdvertise';
+import ArticlesPage from './pages/ArticlesPage';
+import Articles from './components/Releatedarticles/Articles';
+import ArticleViewPage from './pages/ArticleViewPage';
+import AboutPage from './pages/AboutPage';
+import TermsPage from './pages/TermsPage';
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<Layout />}>
       <Route index element={<Home />} />
       <Route path='addListig' element={<AddListingPage />} />
-      <Route path='categories' element={<CategoryPage />} />
-      <Route path='categories/:productId' element={<BusinessDetailsPage />} />
+      <Route path='categories/:mainCategoryId/:mainCategory' element={<CategoryPage />} />
+      <Route path='productView/:productId' element={<BusinessDetailsPage />} />
       <Route path='account' element={<Account />} />
+      <Route path='advertise' element={<AddAdvertise />} />
+      <Route path='allarticlse' element={<ArticlesPage />} />
+      <Route path='articleView/:articleId' element={<ArticleViewPage />} />
+
+      
+      <Route path='about' element={<AboutPage />} />
+      <Route path='termsAndCondition' element={<TermsPage />} />
     </Route>
   )
 );

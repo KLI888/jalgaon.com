@@ -74,7 +74,7 @@ const handleLoginSubmit = async (event) => {
     console.log(token)
     console.log(user)
     // Optionally, you can store user info as well
-    localStorage.setItem('user', JSON.stringify(user_data));
+    localStorage.setItem('user', JSON.stringify(user));
 
     // Redirect or perform other actions after successful login
     console.log('Login successful', user);
@@ -82,6 +82,24 @@ const handleLoginSubmit = async (event) => {
   } catch (error) {
     console.error('Login failed', error);
     // Handle login error (e.g., show an error message to the user)
+  }
+
+
+  try {
+    const response = await axios.post('http://127.0.0.1:8000/app/tokenKey/', {
+      phone_number: phoneNumber,
+      password: userPassword
+    });
+
+    if (response.status === 200) {
+        // Store token in localStorage
+        localStorage.setItem('tokenKey', response.data.token);
+        console.log('Token stored successfully:', response.data.token);
+    } else {
+        console.error('Error:', response.data.error);
+    }
+  } catch (error) {
+      console.error('Error logging in:', error);
   }
 };
 
@@ -99,6 +117,7 @@ const handleLoginSubmit = async (event) => {
         }
       }
     };
+
     checkUserSession();
   }, [setUser, setIsLogin]);
 

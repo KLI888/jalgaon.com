@@ -1,40 +1,69 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { UserContext } from '../../context/UserContext';
+import axios from 'axios';
 
-import './Categorysection.css'
-function BusinessCard() {
+function BusinessCard({ businessData, is_like }) {
+    const { user } = useContext(UserContext);
+    const img_url = is_like ? "http://127.0.0.1:8000/" : "http://127.0.0.1:8000/media/";
+    const token = localStorage.getItem('token');
+
+    const addLikedShop = async (userId, shopListingId) => {
+        if (!token) {
+            console.error('No token found in localStorage');
+            return;
+        }
+
+        try {
+            const response = await axios.post('http://127.0.0.1:8000/app/likedShops/', {
+                user: userId,               // Ensure this matches the expected field name
+                shop_listing: shopListingId // Ensure this matches the expected field name
+            }, {
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                },
+            });
+            console.log("Data is stored");
+            alert("Added to liked");
+            return response.data;
+        } catch (error) {
+            console.error('Error adding liked shop:', error.response ? error.response.data : error.message);
+            throw error;
+        }
+    };
+
     return (
         <div className="business_card">
             <div className="business_img">
-                <img src="https://s3-alpha-sig.figma.com/img/c2f8/ab34/a4e54c00271d2a37b9b73e64af48e8c0?Expires=1721606400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=l-1xWGZ6imoatWmBs~kc2hUYcIEPWP3pfadiSEnHBmOIb6M-DJIr7MtE0ByHY7nnqKBN5CrfVyo6c3NheetbtPmOyTSfnFwyZ77zokjeRTVBwiPx86Tsh4Ye7Ji37rv~EslFblU~YWJoW~DUcGK4qz5HoO56Yxn-ELk-KXPHzxkhkvphkSjZ046bCykWmCNpQdsWscROAefLN4Be~iu1n3jJAXzPr4aPDgtRAjrS085i7iqrxTaSazHfpz7cmpP5UuuwHbC7sHOzEdyuk74F8vixNbT2uh9pADJFlN0lTXs-BOg7BIJ2Ahq8A8EpgaJ37Nxphv3SJyR-PwYpg1C9hA__" alt="" />
+                <img src={`${img_url}${businessData.business_banner}`} alt="" />
             </div>
             <div className="business_info">
                 <p className='business_name'>
-                    <span>S.K.AUTO</span>
-                    <i class='bx bx-heart'></i>
+                    <span>{businessData.business_name}</span>
+                    <i onClick={() => addLikedShop(user.id, businessData.id)} className='bx bx-heart'></i>
                 </p>
                 <div className="business_rating">
                     <span>5</span>
                     <div className="rating">
-                        <i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i>
+                        <i className='bx bxs-star'></i><i className='bx bxs-star'></i><i className='bx bxs-star'></i><i className='bx bxs-star'></i><i className='bx bxs-star'></i>
                     </div>
                 </div>
                 <div className="business_location">
-                    <i class='bx bxs-map'></i> <p>Raymond Square, near Sakal Papers, MIDC, Jalgaon</p>
+                    <i className='bx bxs-map'></i> <p>{businessData.business_address}</p>
                 </div>
                 <div className="business_keywords">
-                    <span>Maruti Suzuki</span>
-                    <span>Mahindra</span>
-                    <span>Hyundai</span>
+                    <span>{businessData.sub_domain_one}</span>
+                    <span>{businessData.sub_domain_two}</span>
+                    <span>{businessData.sub_domain_three}</span>
                 </div>
                 <div className="business_contact">
-                    <a href="tel:8407994909" className='business_call_btn'><i class='bx bxs-phone'></i> Call Us</a>
-                    <Link to='/categories/1'><p>View Details</p></Link>
-                    <Link to='/'><p><i class='bx bx-share-alt'></i> <span>Share</span></p></Link>
+                    <a href={`tel:${businessData.business_no}`} className='business_call_btn'><i className='bx bxs-phone'></i> Call Us</a>
+                    <Link to={`/productView/${businessData.id}`}><p>View Details</p></Link>
+                    <Link to='/'><p><i className='bx bx-share-alt'></i> <span>Share</span></p></Link>
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
-export default BusinessCard
+export default BusinessCard;

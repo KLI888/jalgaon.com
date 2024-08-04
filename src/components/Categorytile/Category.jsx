@@ -1,19 +1,41 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 import './Category.css'
-
+import axios from 'axios';
 
 function Category({ name }) {
+    const [subCategories, setSubCategories] = useState([]);
+
+    useEffect(()=>{
+        if (name) {
+            axios.get('http://127.0.0.1:8000/app/subCategorys/')
+              .then(sub_response => {
+                const filteredSubCategories = sub_response.data.categories.filter(
+                  subCategory => subCategory.main_category === name
+                );
+                setSubCategories(filteredSubCategories);
+                console.log("datasdfsdfsdf get");
+              })
+              .catch(error => {
+                console.error('Error fetching sub-categories:', error);
+              });
+          }
+    }, [])
     return (
         <div className="category">
             <p className="category_name">{name}</p>
             <div className="category_cards">
+                {subCategories.map(category=>(
                 <div className="category_business">
                     <div className="category_img">
-                    <img src="https://www.jalgaon.com/_next/image?url=https%3A%2F%2Fsource.unsplash.com%2Frandom%2F%3FDealerships&w=3840&q=75" alt="" />
+                    <img src={`http://127.0.0.1:8000/${category.sub_category_img}`} alt="" />
                     </div>
-                    <p className="business_name">Cars 24</p>
+                    <p className="business_name">{category.sub_category}</p>
                 </div>
-                <div className="category_business">
+                ))}
+
+
+
+                {/* <div className="category_business">
                     <div className="category_img">
                     <img src="https://s3-alpha-sig.figma.com/img/faaf/b430/01cbe0776cac848cd04bc2be68bc78a3?Expires=1721001600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=QI5fGRARE-Id4MLIyscn7PE8CqrXb4FxCW4Z3xzfV6WFUrZz07xWNAnD9n535F2wZoSauC3Kiid4aqw1TZhh29uXwUpGTGLXh90TCFH5jrSnIXQ9YRyWfbZzdFVQzjykeBg9735hUTHXmGNN3y-En~fXQqEQQy~LpSSqhXMujv2RJn~qsYA-W5rez2v6RAu1B4xoggAGpNc5yNvDuD8p9bFPop66tMhCgPvei3~NfahPigkugIs2itXF36cyYPvDMnRSF2MkX6vtlhUadRotRxwa2G7bgnRfPZD4DX3qJa1QFyNBnMo6~OC~cOJ3aMH7BWTfdxy9j316-dV2Lbzdlw__" alt="" />
                     </div>
@@ -42,7 +64,7 @@ function Category({ name }) {
                     <img src="https://s3-alpha-sig.figma.com/img/c428/a281/a2137cffbf26387b127bf7eb727590a9?Expires=1721001600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=cDl0gUlTtIDs80C0wkptoRrBoRLlw5nWVRgNZnsHz0tB0xnsH6GZ4pbG2JdaTnYKk~k74lpW63OhKQPYhomU0QKkoLsY3kMYYVNcrJuQMis5vDpDk6JEnvoG4As5-kWQLvslRz9adzm-f~CahSjBaqY4U68To77fW9EcPdBiucCiVsBhsNVyUlaHgCwqIOBvc9AkhFwhNI0oDZzIy8rIwb~i-H5Y1vYLmp1cpE4dH2k7acK5TeMZ~DMa6ye9qRb7nNtpRHfUh463kWsUgQyTmmy6DWC5ey32R4PjRkS6O34a1qdsJwZSJNlp8yq7NKJt5hiZZ3gIfFB3xCjFY3nhsw__" alt="" />
                     </div>
                     <p className="business_name">Cars 24</p>
-                </div>
+                </div> */}
             </div>
         </div>
     )

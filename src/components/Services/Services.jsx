@@ -20,7 +20,7 @@ function Services() {
         <div className="services_container">
             <div className="services_cards">
                 {categories.map(category => (
-                    <Link to='/categories'>
+                    <Link to={`/categories/${category.id}/${category.main_category}`}>
                     <div key={category.id} className="service">
                         <img src={`http://127.0.0.1:8000${category.category_img.category_img}`} alt={category.category_img.img_name} />
                         <p>{category.main_category}</p>

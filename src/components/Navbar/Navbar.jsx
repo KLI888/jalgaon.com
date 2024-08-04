@@ -62,7 +62,7 @@ const Navbar = () => {
                         <NavLink to='/addListig'>
                             <li>Add Listing</li>
                         </NavLink>
-                        <NavLink to='/categories'>
+                        <NavLink to='/advertise'>
                             <li>Advertise</li>
                         </NavLink>
                         <NavLink to='/addListig'>
@@ -74,9 +74,9 @@ const Navbar = () => {
                         {user ? (
                             <>
                                 <NavLink to='/account'><p className="login_btn">Account: {user?.phone_number}</p></NavLink>
-                                <form onSubmit={handleLogout}>
+                                {/* <form onSubmit={handleLogout}>
                                     <button type='submit' className="login_btn">Logout</button>
-                                </form>
+                                </form> */}
                             </>
                         ) : (
                             <p onClick={() => setCloseForm(!closeForm)} className="login_btn">Signup/Login</p>

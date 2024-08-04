@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { assets } from '../../assets/assets'
 import './Footer.css'
 function Footer() {
@@ -18,7 +19,7 @@ function Footer() {
                 <h1>Useful Links</h1>
                 <div className="links">
                     <ul className="links_list">
-                        <a href="" className="link">About</a>
+                        <Link to="/about" className="link">About</Link>
                         <a href="" className="link">Blog</a>
                         <a href="" className="link">News</a>
                         <a href="" className="link">Advertise</a>
@@ -33,7 +34,7 @@ function Footer() {
                         <a href="" className="link">Feedback</a>
                         <a href="" className="link">Blog</a>
                         <a href="" className="link">Testimonials</a>
-                        <a href="" className="link">Terms & Conditions</a>
+                        <Link to="/termsAndCondition" className="link">Terms & Conditions</Link>
                     </ul>
                 </div>
             </div>

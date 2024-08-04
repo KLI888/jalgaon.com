@@ -1,8 +1,6 @@
 import React, { useState, useEffect  } from 'react';
 import './Advertise.css';
-// import { Slide } from 'react-slideshow-image';
-// import 'react-slideshow-image/dist/styles.css';
-
+import axios from 'axios';
 const divStyle = {
   // display: 'flex',
   // alignItems: 'center',
@@ -13,52 +11,66 @@ const divStyle = {
   // position: 'relative' // Add this for positioning dots relative to the image
 };
 
-const slideImages = [
-  {
-    url: 'https://www.jalgaon.com/_next/image?url=https%3A%2F%2Fs3.ap-south-1.amazonaws.com%2Fjalgaon.com%2FFind_investing_confusing_1.webp&w=3840&q=75',
-  },
-  {
-    url: 'https://www.jalgaon.com/_next/image?url=https%3A%2F%2Fs3.ap-south-1.amazonaws.com%2Fjalgaon.com%2FFind_investing_confusing.png&w=3840&q=75',
-  },
-  {
-    url: 'https://www.jalgaon.com/_next/image?url=https%3A%2F%2Fs3.ap-south-1.amazonaws.com%2Fjalgaon.com%2FFind_investing_confusing_1.png&w=3840&q=75',
-  },
-  {
-    url: 'https://www.jalgaon.com/_next/image?url=https%3A%2F%2Fs3.ap-south-1.amazonaws.com%2Fjalgaon.com%2FLetter.png&w=3840&q=75',
-  },
-];
+
 
 function Advertise() {
-
+  const [sliedData, setSlideData] = useState([])
   const [slide, setSlide] = useState(0);
+  const [ads, setAds] = useState([]);
+
+
+  useEffect(()=> {
+    axios.get('http://127.0.0.1:8000/app/crousel-ads/')
+      .then(response => {
+        setSlideData(response.data.ads);
+      })
+      .catch(error => {
+        console.error('Error fetching carousel ads:', error);
+      });
+  }, [])
+
+  useEffect(() => {
+    axios.get('http://127.0.0.1:8000/app/banner-ads/')
+      .then(response => {
+        console.log(response.data);
+        setAds(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching banner ads:', error);
+      });
+  }, []);
+
   useEffect(() => {
     const autoSlideInterval = setInterval(() => {
-      setSlide((prevSlide) => (prevSlide + 1) % slideImages.length);
+      setSlide((prevSlide) => (prevSlide + 1) % sliedData.length);
     }, 3000); // Change slide every 3 seconds
 
     return () => {
       clearInterval(autoSlideInterval);
     };
-  }, [slideImages.length]);
+  }, [sliedData.length]);
 
 
   return (
     <div className="advertise_container">
       <div className="slide_container">
-        {slideImages.map((item, index) => {
-          return <img key={index} src={item.url} className={slide === index ? "slider_img_div" : "slider_img_div_hidden"} />;
+        {sliedData.map((item, index) => {
+          return <img key={index} src={`http://127.0.0.1:8000/${item.crousel_add_img}`} className={slide === index ? "slider_img_div" : "slider_img_div_hidden"} />;
         })}
         <span className="indicators">
-          {slideImages.map((_, index)=> {
+          {sliedData.map((_, index)=> {
             return <button key={index} onClick={()=> setSlide(index)} className={slide === index ? "indicator indicator_active": "indicator"}></button>
           })}
         </span>
       </div>
 
       <div className="banner_ads">
-        <img src="https://www.jalgaon.com/_next/image?url=https%3A%2F%2Fs3.ap-south-1.amazonaws.com%2Fjalgaon.com%2Fexplore_JalGaon.webp&w=1920&q=75" alt="" />
-
-        <img src="https://www.jalgaon.com/_next/image?url=https%3A%2F%2Fs3.ap-south-1.amazonaws.com%2Fjalgaon.com%2Fexplore_JalGaon_1.webp&w=1920&q=75" alt="" />
+        {ads.banner_add_home_one && (
+          <img src={`http://127.0.0.1:8000${ads.banner_add_home_one}`} alt="Home Banner One" />
+        )}
+        {ads.banner_add_home_two && (
+          <img src={`http://127.0.0.1:8000${ads.banner_add_home_two}`} alt="Home Banner Two" />
+        )}
       </div>
     </div>
   );

@@ -1,9 +1,22 @@
-import React from 'react'
+import React, { useState, useEffect  } from 'react';
 import { Link } from 'react-router-dom'
 import './Categorysection.css'
 import BusinessCard from './BusinessCard'
+import axios from 'axios';
+function Categorysection({businessData}) {
+    const [ads, setAds] = useState([]);
 
-function Categorysection() {
+    useEffect(() => {
+        axios.get('http://127.0.0.1:8000/app/banner-ads/')
+          .then(response => {
+            console.log(response.data);
+            setAds(response.data);
+          })
+          .catch(error => {
+            console.error('Error fetching banner ads:', error);
+          });
+      }, []);
+
     return (
         <div className="business_section">
             <div className="business_content">
@@ -11,17 +24,22 @@ function Categorysection() {
                <div className="result_heading">Showing Results for <span>Automotive</span></div>
                <div className="business_cards_ads">
                 <div className="business_cards">
+                {businessData.map((business) => (
+                    business.is_valid ? (
+                      <BusinessCard key={business.id} businessData={business} is_like={false} />
+                    ) : null
+                ))}
+                    {/* <BusinessCard/>
                     <BusinessCard/>
                     <BusinessCard/>
                     <BusinessCard/>
-                    <BusinessCard/>
-                    <BusinessCard/>
-                    <BusinessCard/>
+                    <BusinessCard/> */}
                 </div>
                 <div className="business_ads">
-                    <img src="https://s3-alpha-sig.figma.com/img/7a64/2d64/50cbcda6ba1f8caa4f62d93aa7092ded?Expires=1721606400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=fi0Iob4v6wsGfPu7udISdjXIBcYY~Vu213sW9KtTTJmpW7WBPzWa3S9mN907Q3NMMwIIS8drf7z8tdGR1cLeIG7Smt99yPyOgFZKA5gcDIpunhqidmcZr1HcvcPqsqICEAwRmXTzJqYeIIBUI3nkOhKagh49G0CIbbVuJ5KD63HgSxUfclO-dZqics~3rhhh-cRrMcrcZdHss-F8INXbA5zO6lnTdp2A6bGF7Qal7cYLU06j6eMzGgNeRvWQbylNHfWeiD74SxjNkKQftPdRtkSbn5HffEEsjsmenK4eV5xZuElareJHtpG3tAQjOmAOKtsUJCerSRbOWnANP0~OyA__" alt="" />
-                    <img src="https://s3-alpha-sig.figma.com/img/ffa1/376a/90ab27f8e0505303aa5995eabbbf6989?Expires=1721606400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Gt21K-RYDDDnReH3og-tviLkE1nse5CtU93M9eRxq1fJYafEKF0Qi369K0cp~jzK9O45~mHvu1tBtk5wkJZ71DZbisscUbN4LouVzdN62cTsMd8EdzaVkaAHsxVNfbP4gBOeS5HP0uhpPy~Py9CDFrdLhbZSmN0YCtZ-QwaICP3jCj3lB1-VTNEDhDVCq~Z5tiIu9lmeuSirpRaeJkDILZYRV~a5gmgKj4AuCRh0b0PY-hMHNGFtxTLJX7DLlGLzHB2ypVsSopG6qX-8o0HRMlt~DlmOlBc1BNK7AHjlY0-BNp6lJ6YLNR6o33x40mGkYIT7H-PsfH-vvGNuefKK-g__" alt="" /><img src="https://s3-alpha-sig.figma.com/img/7a64/2d64/50cbcda6ba1f8caa4f62d93aa7092ded?Expires=1721606400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=fi0Iob4v6wsGfPu7udISdjXIBcYY~Vu213sW9KtTTJmpW7WBPzWa3S9mN907Q3NMMwIIS8drf7z8tdGR1cLeIG7Smt99yPyOgFZKA5gcDIpunhqidmcZr1HcvcPqsqICEAwRmXTzJqYeIIBUI3nkOhKagh49G0CIbbVuJ5KD63HgSxUfclO-dZqics~3rhhh-cRrMcrcZdHss-F8INXbA5zO6lnTdp2A6bGF7Qal7cYLU06j6eMzGgNeRvWQbylNHfWeiD74SxjNkKQftPdRtkSbn5HffEEsjsmenK4eV5xZuElareJHtpG3tAQjOmAOKtsUJCerSRbOWnANP0~OyA__" alt="" />
-                    <img src="https://s3-alpha-sig.figma.com/img/ffa1/376a/90ab27f8e0505303aa5995eabbbf6989?Expires=1721606400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Gt21K-RYDDDnReH3og-tviLkE1nse5CtU93M9eRxq1fJYafEKF0Qi369K0cp~jzK9O45~mHvu1tBtk5wkJZ71DZbisscUbN4LouVzdN62cTsMd8EdzaVkaAHsxVNfbP4gBOeS5HP0uhpPy~Py9CDFrdLhbZSmN0YCtZ-QwaICP3jCj3lB1-VTNEDhDVCq~Z5tiIu9lmeuSirpRaeJkDILZYRV~a5gmgKj4AuCRh0b0PY-hMHNGFtxTLJX7DLlGLzHB2ypVsSopG6qX-8o0HRMlt~DlmOlBc1BNK7AHjlY0-BNp6lJ6YLNR6o33x40mGkYIT7H-PsfH-vvGNuefKK-g__" alt="" />
+                    <img src={`http://127.0.0.1:8000${ads.banner_add_category_one}`} alt="" />
+                    <img src={`http://127.0.0.1:8000${ads.banner_add_category_two}`} alt="" />
+                    <img src={`http://127.0.0.1:8000${ads.banner_add_category_three}`} alt="" />
+                    <img src={`http://127.0.0.1:8000${ads.banner_add_category_four}`} alt="" />
                 </div>
                </div>
                

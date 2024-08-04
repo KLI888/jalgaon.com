@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function CompanyWork() {
+function CompanyWork({businessData}) {
     const [rating, setRating] = useState(0)
     const [hover, setHover] = useState(null)
     const [isClicked, setIsClicked] = useState(false);
@@ -26,15 +26,11 @@ function CompanyWork() {
             <div className="company_brands">
                 <h1>Vehicle Brands</h1>
                 <div className="brands">
-                    <span>Maruti Suzuki</span>
-                    <span>Mahindra</span>
-                    <span>Tata Motors</span>
-                    <span>Ford</span>
-                    <span>Volkswagen</span>
-                    <span>Hyundai</span>
-                    <span>Chevrolet</span>
-                    <span>Honda</span>
-                    <span>Toyata</span>
+                    <span>{businessData.sub_domain_one}</span>
+                    <span>{businessData.sub_domain_two}</span>
+                    <span>{businessData.sub_domain_three}</span>
+                    <span>{businessData.sub_domain_four}</span>
+                    <span>{businessData.sub_domain_five}</span>
                 </div>
             </div>
             <div className="company_profile">
@@ -42,31 +38,31 @@ function CompanyWork() {
                 <div className="profile_info">
                     <div className="business_origin">
                         <p>Country of Origin</p>
-                        <span>India</span>
+                        <span>{businessData.business_origin}</span>
                     </div>
                     <div className="vr_line"></div>
                     <div className="business_estab">
                         <p>Year of Establishment</p>
-                        <span>2014</span>
+                        <span>{businessData.business_dob}</span>
                     </div>
                     <div className="vr_line"></div>
                     <div className="business_gst">
                         <p>GST Number</p>
-                        <span>27ADZFS9537Q1ZI</span>
+                        <span>{businessData.business_gst}</span>
                     </div>
 
                 </div>
             </div>
             <div className="company_desc">
                 <h1>Description</h1>
-                <p>As a locally owned and operated full service AUTOICON shop, we can handle any sized job efficiently and affordably. We are committed to customer satisfaction and strive to be Jalgaon's first resource for automotive repair. In addition to those unexpected repairs we also provide preventative or factory recommended maintenance. We are also happy to arrange a rental car for you with Enterprise Rent-A-Car, should the need arise.</p>
+                <p>{businessData.business_description}</p>
             </div>
             <div className="company_photos">
                 <h1>Photos</h1>
                 <div className="phtos">
-                    <img src="https://s3-alpha-sig.figma.com/img/4edb/71cb/2a99485c33076fb6ba6c538e30066d35?Expires=1722211200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=lqMAJYbdzwQbe2wcPs6ULPyZnvCUzxb6wvkFbDRWmbBltWUGtsNJQCm50h8KVJZi9MtdL0V~hiYB2cf8kmdyfUXsbZbUuPy3sEjvkQLSNrEpOz7pIdvwMYSHPr37KWXC7Q4O-q~c~tdjH41xHODPPx6kOyBhfU8-o8f7-cXHKjst7hs9wQpbAXdOmdmujUHmwnGngzZRvee8c1FKcrms1datfZLYmX1kmlYNxrlAjJ6c39yT8ZaCngRHsNwNQa2x65Z8UO0eRhmhsIPUwO02nlJpBz7RTB6vJwiM1LZHRP-2j4AAV6O0MFWJy3AaOSwko7ogXmx8kiu9VziQoCVyNw__" alt="" />
-                    <img src="https://s3-alpha-sig.figma.com/img/4e1a/8c0f/4b1a521f6db90d993340aa58a221ace9?Expires=1722211200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=XSbbjjAeGrA~kYzkviE4X1oQ2JtlFVCA-s5kHghNnNz~VGtBiDKVpl5-oJcNfha71B9sqfAIpwVBE~Eh25AfFIWuVPWUIG0hPAvYsa9C-7GSeSwaffdW40RhU0mNvcHOUTlH3KjygMQm5CkH46EPSqgDoMgpUyemu6PYJykIxNVRXEu1Iv3zo2wl4wK6jMnVdOccZ1-rPVVyouk8EjzoyRQbpuXzvRUPrg8a50FxUPBWeG4i9Jb5kcLG8zsiMJ-d024dF90wZwHTOu2XCBAqfWliGoL5BatDG2JMg2IdjWvisMsPgpuqYKZblL4RlmsYVI9sicIVtbCfeSHBMYBjiQ__" alt="" />
-                    <img src="https://s3-alpha-sig.figma.com/img/c2f8/ab34/a4e54c00271d2a37b9b73e64af48e8c0?Expires=1722211200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=IViOt76B5hsl-hPognTcy8ly4WTmQgGC8br6v4HRKr5UFbIyVP1mEm4fr5mMGC~KBg6oB2otZCwp6xBRsPpSk9R080ZOF35YddvAnZHhtUUNNJs7CT0qzlrpHtsXWlzwAxjqV-245Tq0oyXWBIAkhwo8SxjsTl5E8tiklzGlScL5sc5D4mpYxC5yjDdeBnRIBIEJV~T4UGVKxmum7ZPKs9-dMwfex~5gG-ELHIchUsdwDAezqg8rQbCvOV6deGW1p31U82w99cLVMjoSTf304xBcsyyCimkvo-VjdnJ7mN6N7Lc57d1N1Pbala2JDZ1UgJy7caraK7Epo7sto~BGlA__" alt="" />
+                    <img src={`http://127.0.0.1:8000/${businessData.business_img_one}`} alt="" />
+                    <img src={`http://127.0.0.1:8000/${businessData.business_img_two}`} alt="" />
+                    <img src={`http://127.0.0.1:8000/${businessData.business_img_three}`} alt="" />
                 </div>
             </div>
             <div className="company_reviw">
