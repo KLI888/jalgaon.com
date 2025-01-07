@@ -145,7 +145,9 @@
     width: 70%;
 }
 .companyWork h1 {
+    text-align: start;
     font-size: 20px;
+    margin-bottom: 0;
     font-weight: 600;
 }
 .company_brands {

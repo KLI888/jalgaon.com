@@ -15,6 +15,8 @@ import Articles from './components/Releatedarticles/Articles';
 import ArticleViewPage from './pages/ArticleViewPage';
 import AboutPage from './pages/AboutPage';
 import TermsPage from './pages/TermsPage';
+import NewsView from './components/News/NewsView';
+import EventsList from './components/Events/EventsList';
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<Layout />}>
@@ -25,6 +27,8 @@ const router = createBrowserRouter(
       <Route path='account' element={<Account />} />
       <Route path='advertise' element={<AddAdvertise />} />
       <Route path='allarticlse' element={<ArticlesPage />} />
+      <Route path='news' element={<NewsView />} />
+      <Route path='events' element={<EventsList />} />
       <Route path='articleView/:articleId' element={<ArticleViewPage />} />
 
       

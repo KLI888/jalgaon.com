@@ -51,7 +51,7 @@ function Footer() {
                 <div className="hr_line"></div>
                 <div className="social_links">
                     <a href=""><i class='bx bxl-facebook-square'></i></a>
-                    <a href=""><i class='bx bxl-instagram-alt'></i></a>
+                    <a target='_blank' href="https://www.instagram.com/jalgaondotcom"><i class='bx bxl-instagram-alt'></i></a>
                     <a href=""><i class='bx bxl-twitter'></i></a>
                 </div>
             </div>

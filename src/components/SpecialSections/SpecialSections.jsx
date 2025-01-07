@@ -15,7 +15,7 @@ function SpecialSections() {
         <Link to='/'>
           <div className="special_btn btn_freeList">Free Listing</div>
         </Link>
-        <Link to='/'>
+        <Link to='/events'>
           <div className="special_btn btn_events">Events</div>
         </Link>
       </div>
